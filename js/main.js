@@ -15,14 +15,13 @@ let listaNumeriUtente = [];
 let listaAzzeccati = [];
 let azzeccati = 0;
 setTimeout(function() { // dopo 3 secondi:
-    console.log("numeri da ricordare: " + numeri)
-
     // pusho 5 volte i numeri inseriti dall'utente e li stampo in console
     for (let i = 0; i < 5; i++) {
         let numeroUtente = parseInt(prompt("inserisci uno dei numeri visti in precedenza compresi tra 1 e 100"));
         listaNumeriUtente.push(numeroUtente);
     }
     console.log("hai inserito: " + listaNumeriUtente);
+    console.log("numeri da ricordare: " + numeri)
 
     // ciclo per il numero di elementi inseriti (in questo caso 5)
     for (let i = 0; i < listaNumeriUtente.length; i++) {
