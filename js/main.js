@@ -8,17 +8,32 @@ let numeri = [];
 for (let i = 0; i < 5; i++) {
     numeri.push(getRndInteger(1, 100))
 }
-console.log(numeri)
 alert(numeri);
 
-// creo un'array e, dopo 3 secondi, ci pusho per 5 volte il numero inserito dall'utente nel prompt e lo visualizzo in console
+// creo un'array vuoto per i numeri inseriti dall'utente, uno per quelli eventualmente azzeccati e setto a 0 il numero di quelli azzeccati
 let listaNumeriUtente = [];
-setTimeout(function() {
+let listaAzzeccati = [];
+let azzeccati = 0;
+setTimeout(function() { // dopo 3 secondi:
+    console.log("numeri da ricordare: " + numeri)
+
+    // pusho 5 volte i numeri inseriti dall'utente e li stampo in console
     for (let i = 0; i < 5; i++) {
-        let numeroUtente = parseInt(prompt("inserisci uno dei numeri visti in precedenza"));
+        let numeroUtente = parseInt(prompt("inserisci uno dei numeri visti in precedenza compresi tra 1 e 100"));
         listaNumeriUtente.push(numeroUtente);
     }
-    console.log(listaNumeriUtente);
+    console.log("hai inserito: " + listaNumeriUtente);
+
+    // ciclo per il numero di elementi inseriti (in questo caso 5)
+    for (let i = 0; i < listaNumeriUtente.length; i++) {
+        if (numeri.includes(listaNumeriUtente[i])) {
+            // aumento di 1 la let "azzeccati" e pusho i numeri azzeccati
+            azzeccati++
+            listaAzzeccati.push (listaNumeriUtente[i])
+        }
+    }
+    // stampo il risultato in console
+    console.log("hai azzeccato " + azzeccati + " numeri: " + listaAzzeccati);
 }, 3 * 1000);
 
 
